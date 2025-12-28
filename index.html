@@ -343,4 +343,24 @@
             
             // Find the correct theme dot and activate it
             setTimeout(() => {
-                const themeDots = document.querySelecto
+                const themeDots = document.querySelectorAll('.theme-dot');
+                if(themeDots.length > 0) {
+                    themeDots.forEach(dot => {
+                        const bgColor = dot.style.backgroundColor;
+                        if((bgColor === 'rgb(255, 62, 96)' || bgColor === '#ff3e60') && savedTheme === 'default') {
+                            dot.classList.add('active');
+                        } else if((bgColor === 'rgb(112, 0, 255)' || bgColor === '#7000ff') && savedTheme === 'royal') {
+                            dot.classList.add('active');
+                        } else if((bgColor === 'rgb(255, 140, 0)' || bgColor === '#ff8c00') && savedTheme === 'sunset') {
+                            dot.classList.add('active');
+                        } else if((bgColor === 'rgb(0, 200, 83)' || bgColor === '#00c853') && savedTheme === 'emerald') {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            }, 100); // Small delay to ensure DOM is ready
+        }
+    });
+</script>
+</body>
+</html>
